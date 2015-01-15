@@ -9,8 +9,8 @@ var fs 				= require("fs");							// get the filesystem module
 var http 			= require("http");							// get the HTTP server module
 var express 		= require("express");						// get express for added functionality
 var app				= express();								// initialise express
-var Bloom_filter	= require("bloom_filter/bloom_filter");			// get bloom xx filter module
-
+var Bloom_filter	= require("./bloom_filter");				// get bloom xx filter module
+ 
 // setup option for Bloom Filter
 var options =
 {
