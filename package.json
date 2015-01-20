@@ -1,0 +1,35 @@
+{
+  "name": "bloom_filter",
+  "version": "1.0.0",
+  "description": "testing bloom filter implementation for nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/deepak-blackswan/bloom_filter.git"
+  },
+  "dependencies": {
+    "express": "4.11.0",
+    "bloomxx": "0.0.2"
+  },
+  "keywords": [
+    "bloom",
+    "bloom",
+    "filter",
+    "node",
+    "js"
+  ],
+  "author": "Deepak Verma",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/deepak-blackswan/bloom_filter/issues"
+  },
+  "homepage": "https://github.com/deepak-blackswan/bloom_filter",
+  "devDependencies": {
+    "mocha": "^2.1.0",
+    "should": "^4.6.1",
+    "supertest": "^0.15.0"
+  }
+}

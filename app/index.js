@@ -9,7 +9,7 @@ var fs 				= require("fs");							// get the filesystem module
 var http 			= require("http");							// get the HTTP server module
 var express 		= require("express");						// get express for added functionality
 var app				= express();								// initialise express
-var Bloom_filter	= require("./bloom_filter");				// get bloom xx filter module
+var Bloom_filter	= require("bloomxx/lib/bloom");					// get bloom xx filter module
  
 // setup option for Bloom Filter
 var options =
@@ -23,11 +23,11 @@ filter = new Bloom_filter(options);				// create filter (refer to: https://githu
 filter = Bloom_filter.createOptimal();
 
 // get our configuration variable
-var config 		= JSON.parse(fs.readFileSync("./config.json"));
+var config 		= JSON.parse(fs.readFileSync("./app/config.json"));
 var host 		= config.host;
 var port		= config.port; 
 
-var input = fs.createReadStream("./wordlist-small.txt");
+var input = fs.createReadStream("./app/wordlist-small.txt");
 readLines(input);
 
 function readLines(input) {
