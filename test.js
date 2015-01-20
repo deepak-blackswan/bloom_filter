@@ -136,14 +136,14 @@ describe('BloomFilter()', function()
 			var filter = new BloomFilter({ hashes: 4, bits: 128 });
 
 			hasBitsSet(filter.buffer).should.equal(0);
-			filter.add(new Buffer('cat'));
+			filter.add(new Buffer('php'));
 			hasBitsSet(filter.buffer).should.equal(1);
 		});
 
 		it('can store strings', function()
 		{
 			var filter = new BloomFilter({ hashes: 4, bits: 128 });
-			filter.add('cat');
+			filter.add('php');
 
 			hasBitsSet(filter.buffer).should.equal(1);
 		});
@@ -151,7 +151,7 @@ describe('BloomFilter()', function()
 		it('can store arrays of buffers or strings', function()
 		{
 			var filter = new BloomFilter({ hashes: 4, bits: 128 });
-			filter.add(['cat', 'dog', 'wallaby']);
+			filter.add(['php', 'python', 'java']);
 
 			hasBitsSet(filter.buffer).should.equal(1);
 		});
@@ -190,28 +190,28 @@ describe('BloomFilter()', function()
 		it('returns true when called on a stored item', function()
 		{
 			var filter = new BloomFilter({ hashes: 3, bits: 16 });
-			filter.add('cat');
+			filter.add('php');
 
 			hasBitsSet(filter.buffer).should.equal(1);
-			filter.has('cat').should.be.ok;
+			filter.has('php').should.be.ok;
 		});
 
 		it('returns false for items not in the set (mostly)', function()
 		{
 			var filter = new BloomFilter({ hashes: 4, bits: 50 });
-			filter.add('cat');
-			filter.has('dog').should.not.be.ok;
+			filter.add('php');
+			filter.has('python').should.not.be.ok;
 		});
 
 		it('responds appropriately for arrays of added items', function()
 		{
 			var filter = new BloomFilter({ hashes: 3, bits: 128 });
-			filter.add(['cat', 'dog', 'wallaby']);
+			filter.add(['php', 'python', 'java']);
 
-			filter.has('cat').should.equal(true);
-			filter.has('dog').should.equal(true);
-			filter.has('wallaby').should.equal(true);
-			filter.has('orange').should.equal(false);
+			filter.has('php').should.equal(true);
+			filter.has('python').should.equal(true);
+			filter.has('java').should.equal(true);
+			filter.has('html').should.equal(false);
 		});
 	});
 
@@ -220,7 +220,7 @@ describe('BloomFilter()', function()
 		it('clears the filter', function()
 		{
 			var filter = new BloomFilter({ hashes: 3, bits: 128 });
-			filter.add(['cat', 'dog', 'wallaby']);
+			filter.add(['php', 'python', 'java']);
 			hasBitsSet(filter.buffer).should.equal(1);
 
 			filter.clear();
